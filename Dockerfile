@@ -14,7 +14,7 @@ RUN buildDeps='make build-essential g++ gcc python2.7' && softDeps="tmux git cur
  && git clone https://github.com/c9/core.git /cloud9 && cd /cloud9 \
  && scripts/install-sdk.sh \
  && apt-get clean -y \
- && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+ && rm -rf /tmp/* /var/tmp/* \
  && npm cache clean
  
 VOLUME /workspace
