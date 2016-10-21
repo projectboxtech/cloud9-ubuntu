@@ -3,7 +3,7 @@ Docker hub: https://hub.docker.com/r/jrcamenzuli/cloud9/
 
 Cloud9 is a web browser based Integrated Development Environment. Since the UI runs in the browser it is highly portable, running on almost any device that has a web browser. Use this image to host your own Cloud9 instance on your computer/server and use it's resources for development and experimentation. Have fun!
 
-## Versions:
+## Versions
 Select a specific version by specifying a tag listed in the tags section. There are versions for various base images and configurations.
 
 * Is your desired base image not available? Make a request.
