@@ -14,9 +14,12 @@ RUN buildDeps='make build-essential g++ gcc python2.7' && softDeps="tmux git" \
  && apt-get autoremove -y && apt-get autoclean -y && apt-get clean -y \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
  && npm cache clean
+
+ENV LEIN_ROOT true
  
 VOLUME /workspace
 EXPOSE 8181 
 ENTRYPOINT ["forever", "/cloud9/server.js", "-w", "/workspace", "-l", "0.0.0.0"]
 
 #CMD["--auth","username:password"]
+
