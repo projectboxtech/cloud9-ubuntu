@@ -4,7 +4,11 @@
 FROM ubuntu:xenial
 MAINTAINER Jonathan Camenzuli <jrcamenzuli@gmail.com>
 
+<<<<<<< HEAD
 RUN buildDeps='make build-essential g++ gcc python2.7' && softDeps="tmux git curl" \
+=======
+RUN buildDeps='make build-essential g++ gcc python2.7' && softDeps="tmux git openssh-server zip unzip" \
+>>>>>>> master
  && apt-get update && apt-get upgrade -y \
  && apt-get install -y $buildDeps $softDeps --no-install-recommends \
  && curl -sL https://deb.nodesource.com/setup_6.x | bash - \
