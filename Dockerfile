@@ -4,7 +4,7 @@
 FROM node:slim
 MAINTAINER Jonathan Camenzuli <jrcamenzuli@gmail.com>
 
-RUN buildDeps='make build-essential g++ gcc python2.7' && softDeps="tmux git" \
+RUN buildDeps='make build-essential g++ gcc python2.7' && softDeps="tmux git openssh-server zip unzip" \
  && apt-get update && apt-get upgrade -y \
  && apt-get install -y $buildDeps $softDeps --no-install-recommends \
  && npm install -g forever && npm cache clean \
