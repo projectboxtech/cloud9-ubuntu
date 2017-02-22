@@ -4,12 +4,11 @@
 FROM ubuntu:xenial
 MAINTAINER Jonathan Camenzuli <jrcamenzuli@gmail.com>
 
-RUN buildDeps='make build-essential g++ gcc python2.7 default-jre default-jdk' && softDeps="tmux git curl wget openssh-server zip unzip imagemagick" \
+RUN buildDeps='make build-essential g++ gcc python2.7' && softDeps="tmux git curl wget openssh-server zip unzip imagemagick default-jre default-jdk" \
  && apt-get update && apt-get upgrade -y \
  && apt-get install -y $buildDeps $softDeps --no-install-recommends \
  && curl -sL https://deb.nodesource.com/setup_6.x | bash - \
- && apt-get install -y nodejs npm \
- && ln -s /usr/bin/nodejs /usr/bin/node \
+ && apt-get install -y nodejs \
  && npm install -g forever && npm cache clean \
  && git clone https://github.com/c9/core.git /cloud9 && cd /cloud9 \
  && scripts/install-sdk.sh \
