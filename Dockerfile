@@ -17,6 +17,9 @@ RUN buildDeps='make build-essential g++ gcc python2.7' && softDeps="tmux git cur
  && npm cache clean
 
 ENV LEIN_ROOT true
+ADD https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein /bin
+RUN chmod a+x /bin/lein
+RUN lein
  
 VOLUME /workspace
 EXPOSE 8181 
