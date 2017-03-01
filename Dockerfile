@@ -4,7 +4,9 @@
 FROM ubuntu:xenial
 MAINTAINER Jonathan Camenzuli <jrcamenzuli@gmail.com>
 
-RUN buildDeps='make build-essential g++ gcc python2.7' && softDeps="tmux git curl wget openssh-server zip unzip imagemagick default-jre default-jdk" \
+RUN \
+ buildDeps='make build-essential g++ gcc python2.7' \
+ && softDeps="tmux git curl wget openssh-server zip unzip imagemagick default-jre default-jdk" \
  && apt-get update && apt-get upgrade -y \
  && apt-get install -y $buildDeps $softDeps --no-install-recommends \
  && curl -sL https://deb.nodesource.com/setup_6.x | bash - \
