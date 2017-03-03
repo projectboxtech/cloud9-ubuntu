@@ -6,7 +6,7 @@ MAINTAINER Jonathan Camenzuli <jrcamenzuli@gmail.com>
 
 RUN \
     buildDeps='make build-essential g++ gcc python2.7' \
-    && softDeps="tmux git curl wget openssh-server zip unzip imagemagick default-jre default-jdk" \
+    && softDeps="tmux git curl wget openssh-server zip unzip imagemagick default-jre default-jdk vim" \
     && apt-get update && apt-get upgrade -y \
     && apt-get install -y $buildDeps $softDeps --no-install-recommends \
     && curl -sL https://deb.nodesource.com/setup_6.x | bash - \
@@ -36,7 +36,7 @@ RUN \
     wget https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go1.8.linux-amd64.tar.gz && \
     rm go1.8.linux-amd64.tar.gz && \
-    export PATH=$PATH:/usr/local/go/bin
+    echo "PATH=\$PATH:/usr/local/go/bin" >> /root/.bashrc
 
 VOLUME /workspace
 EXPOSE 8181 
