@@ -18,17 +18,25 @@ RUN \
     && rm -rf /tmp/* /var/tmp/* \
     && npm cache clean
 
+# Install Leiningen / Clojure
 ENV LEIN_ROOT true
 ADD https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein /bin
 RUN chmod a+x /bin/lein
 RUN lein
 
+# Install Rust
 RUN \
     curl https://sh.rustup.rs > sh.rustup.rs && \
     chmod +x sh.rustup.rs && \
     ./sh.rustup.rs -y && \
     rm sh.rustup.rs
 
+# Install Go 1.8
+RUN \
+    wget https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz && \
+    tar -C /usr/local -xzf go1.8.linux-amd64.tar.gz && \
+    rm go1.8.linux-amd64.tar.gz && \
+    export PATH=$PATH:/usr/local/go/bin
 
 VOLUME /workspace
 EXPOSE 8181 
