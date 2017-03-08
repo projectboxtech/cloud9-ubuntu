@@ -38,6 +38,11 @@ RUN \
     rm go1.8.linux-amd64.tar.gz && \
     echo "PATH=\$PATH:/usr/local/go/bin" >> /root/.bashrc
 
+# Install Lua
+RUN \
+    wget https://downloads.sourceforge.net/project/luabinaries/5.3.3/Tools%20Executables/lua-5.3.3_Linux319_64_bin.tar.gz && \
+    tar -C /bin -xzf lua-5.3.3_Linux319_64_bin.tar.gz
+
 VOLUME /workspace
 EXPOSE 8181 
 ENTRYPOINT ["forever", "/cloud9/server.js", "-w", "/workspace", "-l", "0.0.0.0"]
