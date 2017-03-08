@@ -41,7 +41,8 @@ RUN \
 # Install Lua
 RUN \
     wget https://downloads.sourceforge.net/project/luabinaries/5.3.3/Tools%20Executables/lua-5.3.3_Linux319_64_bin.tar.gz && \
-    tar -C /bin -xzf lua-5.3.3_Linux319_64_bin.tar.gz
+    tar -C /bin -xzf lua-5.3.3_Linux319_64_bin.tar.gz && \
+    rm lua-5.3.3_Linux319_64_bin.tar.gz
 
 VOLUME /workspace
 EXPOSE 8181 
