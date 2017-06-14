@@ -5,17 +5,17 @@ Cloud9 is a web browser based Integrated Development Environment. Since the UI r
 
 ## Usage
 
-    docker run -d -v $(pwd):/workspace -p 8181:8181 projectboxtech/cloud9-ubuntu[:tag]
+    docker run -d -v "$(pwd)":/workspace -p 8181:8181 projectboxtech/cloud9-ubuntu[:tag]
 
 ## Start with auth
 
-    docker run -d -v $(pwd):/workspace -p 8181:8181 projectboxtech/cloud9-ubuntu[:tag] --auth username:password
+    docker run -d -v "$(pwd)":/workspace -p 8181:8181 projectboxtech/cloud9-ubuntu[:tag] --auth username:password
     
 You can also use any starting option describe in : https://github.com/c9/core
 
 ## Use custom user settings
 
-    docker run -d -v $(pwd):/workspace -v /home/user/c9.settings:/root/.c9/user.settings -p 8181:8181 projectboxtech/cloud9-ubuntu[:tag]
+    docker run -d -v "$(pwd)":/workspace -v /home/user/c9.settings:/root/.c9/user.settings -p 8181:8181 projectboxtech/cloud9-ubuntu[:tag]
 
 Where /home/user/c9.settings is the user.settings file on your file system
 
