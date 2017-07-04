@@ -44,6 +44,16 @@ RUN \
     tar -C /bin -xzf lua-5.3.3_Linux319_64_bin.tar.gz && \
     rm lua-5.3.3_Linux319_64_bin.tar.gz
 
+# Install Boost
+ADD https://dl.bintray.com/boostorg/release/1.64.0/source/boost_1_64_0.tar.gz /tmp
+RUN mv /tmp/boost_1_64_0/boost /usr/include
+
+# Install Boost SIMD
+WORKDIR /tmp
+RUN \
+    git clone https://github.com/NumScale/boost.simd.git -b master && \
+    mv boost.simd/include/boost/* /usr/include/boost
+
 VOLUME /workspace
 EXPOSE 8181 
 ENTRYPOINT ["forever", "/cloud9/server.js", "-w", "/workspace", "-l", "0.0.0.0"]
