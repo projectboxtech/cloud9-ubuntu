@@ -45,11 +45,11 @@ RUN \
 	rm lua-5.3.3_Linux319_64_bin.tar.gz
 
 # Install Boost
-ADD https://dl.bintray.com/boostorg/release/1.64.0/source/boost_1_64_0.tar.gz /tmp
-RUN mv /tmp/boost_1_64_0/boost /usr/include/
-
-# Install Boost SIMD
 WORKDIR /tmp
+RUN wget https://dl.bintray.com/boostorg/release/1.64.0/source/boost_1_64_0.tar.gz && \
+	tar -xzf boost_1_64_0.tar.gz && \
+	mv /tmp/boost_1_64_0/boost /usr/include/
+# Install Boost SIMD
 RUN \
 	git clone https://github.com/NumScale/boost.simd.git -b master && \
 	mv boost.simd/include/boost/* /usr/include/boost
